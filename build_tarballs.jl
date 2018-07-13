@@ -38,7 +38,7 @@ products(prefix) = [
 dependencies = [
     "https://github.com/bicycle1885/ZlibBuilder/releases/download/v1.0.1/build_Zlib.v1.2.11.jl",
     "https://github.com/SimonDanisch/LibpngBuilder/releases/download/v1.6.31/build_libpng.v1.0.0.jl",
-    "https://github.com/staticfloat/PixmanBuilder/releases/download/v0.34.0-0/build.jl",
+    "https://github.com/staticfloat/PixmanBuilder/releases/download/v0.34.0-1/build_Pixman.v0.34.0.jl",
     "https://github.com/JuliaGraphics/FreeTypeBuilder/releases/download/v2.9.1/build_FreeType2.v2.9.0.jl"
 ]
 
