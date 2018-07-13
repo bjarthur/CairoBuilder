@@ -19,7 +19,7 @@ sources = [
 script = raw"""
 cd $WORKSPACE/srcdir
 cd cairo-1.14.12/
-./configure --prefix=$prefix --host=$target --disable-static --disable-xlib --disable-ft --disable-dependency-tracking
+LDFLAGS="-L$prefix/lib" CPPFLAGS="-I$prefix/include" ./configure --prefix=$prefix --host=$target --disable-static --disable-xlib --disable-ft --disable-dependency-tracking
 make -j${ncore}
 make install
 exit
@@ -28,7 +28,7 @@ exit
 # These are the platforms we will build for by default, unless further
 # platforms are passed in on the command line
 platforms = [
-    # Linux(:i686, :glibc),
+    Linux(:i686, :glibc),
     Linux(:x86_64, :glibc),
     # Linux(:aarch64, :glibc),
     # Linux(:armv7l, :glibc, :eabihf),
@@ -37,9 +37,9 @@ platforms = [
     # Linux(:x86_64, :musl),
     # Linux(:aarch64, :musl),
     # Linux(:armv7l, :musl, :eabihf),
-    # MacOS(:x86_64),
+    MacOS(:x86_64),
     # FreeBSD(:x86_64),
-    # Windows(:i686),
+    Windows(:i686),
     Windows(:x86_64)
 ]
 
