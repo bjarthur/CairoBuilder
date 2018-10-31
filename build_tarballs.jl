@@ -19,7 +19,7 @@ sources = [
 script = raw"""
 cd $WORKSPACE/srcdir
 cd cairo-1.14.12/
-LDFLAGS="-L$prefix/lib" CPPFLAGS="-I$prefix/include" ./configure --prefix=$prefix --host=$target --disable-static --disable-xlib --disable-ft --disable-dependency-tracking
+LDFLAGS="-L$prefix/lib" CPPFLAGS="-I$prefix/include" ./configure --prefix=$prefix --host=$target --disable-xlib --disable-ft --disable-dependency-tracking
 make -j${ncore}
 make install
 exit
@@ -27,7 +27,9 @@ exit
 
 # These are the platforms we will build for by default, unless further
 # platforms are passed in on the command line
-platforms = supported_platforms()
+platforms = [
+    Linux(:x86_64, libc=:glibc),
+]
 
 # The products that we will ensure are always built
 products(prefix) = [
@@ -39,7 +41,7 @@ dependencies = [
     "https://github.com/bicycle1885/ZlibBuilder/releases/download/v1.0.1/build_Zlib.v1.2.11.jl",
     "https://github.com/SimonDanisch/LibpngBuilder/releases/download/v1.6.31/build_libpng.v1.0.0.jl",
     "https://github.com/staticfloat/PixmanBuilder/releases/download/v0.34.0-1/build_Pixman.v0.34.0.jl",
-    "https://github.com/JuliaGraphics/FreeTypeBuilder/releases/download/v2.9.1/build_FreeType2.v2.9.0.jl"
+    "https://github.com/JuliaGraphics/FreeTypeBuilder/releases/download/v2.9.1-1/build_FreeType2.v2.9.1.jl",
 ]
 
 
